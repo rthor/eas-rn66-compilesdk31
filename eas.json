@@ -1,0 +1,36 @@
+{
+  "build": {
+    "base": {
+      "env": {
+        "APP_MODE": "production"
+      },
+      "ios": {
+        "autoIncrement": false
+      },
+      "android": {
+        "autoIncrement": false,
+        "buildType": "app-bundle",
+        "image": "ubuntu-20.04-jdk-11-ndk-r21e"
+      }
+    },
+    "release": {
+      "extends": "base"
+    },
+    "staging": {
+      "extends": "base",
+      "releaseChannel": "staging"
+    },
+    "development": {
+      "extends": "base",
+      "releaseChannel": "dev",
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
+    }
+  },
+  "cli": {
+    "version": ">= 0.47.0",
+    "requireCommit": true
+  }
+}
